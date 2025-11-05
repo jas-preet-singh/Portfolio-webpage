@@ -1,479 +1,1125 @@
-// JavaScript for Jaspreet Singh's Portfolio
+/* Custom CSS for Jaspreet Singh's Portfolio */
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
+/* Font Family */
+.font-inter {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(34, 197, 94, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(34, 197, 94, 0.6);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.8s ease-out;
+}
+
+.animate-pulse-custom {
+    animation: pulse 2s infinite;
+}
+
+.animate-glow {
+    animation: glow 2s infinite;
+}
+
+/* Button Styles */
+.btn-primary {
+    @apply inline-flex items-center px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-green-500/25;
+}
+
+.btn-primary-gradient {
+    @apply inline-flex items-center px-6 py-3 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg;
+    background: linear-gradient(135deg, #3b82f6, #22c55e);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary-gradient:hover {
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+.btn-secondary {
+    @apply inline-flex items-center px-6 py-3 border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-gray-900 font-semibold rounded-lg transition-all duration-300 transform hover:scale-105;
+}
+
+/* Navigation Styles */
+.nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: #22c55e;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Updated Skills Section Styling */
+.skill-card {
+    position: relative;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    background: #0f1720;
+    border: 2px solid rgba(255, 255, 255, 0.35); /* Added clear visible border */
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.15) inset;
+}
+
+.skill-card.accent-blue {
+    border-color: rgba(61, 202, 255, 0.65);
+}
+
+.skill-card.accent-green {
+    border-color: rgba(44, 255, 125, 0.65);
+}
+
+.skill-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    background: linear-gradient(180deg, rgba(17, 24, 39, 0.9), rgba(10, 15, 20, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #e2e8f0;
+}
+
+.skill-pill:hover {
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+.skill-icon {
+    width: 1.1rem;
+    text-align: center;
+    opacity: 0.9;
+}
+
+/* Updated Projects Section Styling */
+.card {
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background: #0f1720;
+    transition: all 0.3s ease;
+}
+
+/* Green glowing card */
+.card-green {
+    border: 2px solid rgba(34, 197, 94, 0.4);
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.15) inset, 0 0 30px rgba(34, 197, 94, 0.15);
+}
+
+.card-green:hover {
+    border-color: rgba(34, 197, 94, 0.7);
+    box-shadow: 0 0 25px rgba(34, 197, 94, 0.25) inset, 0 0 40px rgba(34, 197, 94, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Blue glowing card */
+.card-blue {
+    border: 2px solid rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15) inset, 0 0 30px rgba(59, 130, 246, 0.15);
+}
+
+.card-blue:hover {
+    border-color: rgba(59, 130, 246, 0.7);
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.25) inset, 0 0 40px rgba(59, 130, 246, 0.25);
+    transform: translateY(-2px);
+}
+
+.card-media {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    background: #0a0f14;
+}
+
+.fig-caption {
+    font-size: 0.85rem;
+    text-align: center;
+    color: #9ca3af;
+    margin-top: 0.4rem;
+}
+
+.table-caption {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #a5f3fc;
+    margin-top: 0.6rem;
+}
+
+.badge {
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 9999px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    color: #e2e8f0;
+    background: rgba(10, 15, 20, 0.6);
+}
+
+.btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 0.5rem;
+    color: #e2e8f0;
+}
+
+.btn-ghost:hover {
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+/* GitHub Project Cards Styling */
+.github-project-card {
+    background: #0f1720;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Green GitHub project cards */
+.github-project-card.card-green {
+    border: 2px solid rgba(34, 197, 94, 0.4);
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.15) inset, 0 0 30px rgba(34, 197, 94, 0.15);
+}
+
+.github-project-card.card-green:hover {
+    border-color: rgba(34, 197, 94, 0.7);
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(34, 197, 94, 0.25) inset, 0 0 40px rgba(34, 197, 94, 0.25);
+}
+
+/* Blue GitHub project cards */
+.github-project-card.card-blue {
+    border: 2px solid rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15) inset, 0 0 30px rgba(59, 130, 246, 0.15);
+}
+
+.github-project-card.card-blue:hover {
+    border-color: rgba(59, 130, 246, 0.7);
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.25) inset, 0 0 40px rgba(59, 130, 246, 0.25);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+
+.project-title {
+    color: #e2e8f0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    flex: 1;
+    margin-right: 0.5rem;
+}
+
+.project-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+}
+
+.project-language {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+    padding: 0.125rem 0.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.project-stars {
+    color: #fbbf24;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.project-description {
+    color: #9ca3af;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin: 0 0 1rem 0;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.project-stats {
+    display: flex;
+    gap: 1rem;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: #6b7280;
+    font-size: 0.75rem;
+}
+
+.stat-item i {
+    font-size: 0.625rem;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.75rem;
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    background: rgba(34, 197, 94, 0.2);
+    border-color: rgba(34, 197, 94, 0.5);
+    color: #16a34a;
+    transform: translateY(-1px);
+}
+
+/* Education & Certificate Styles */
+.education-item {
+    @apply bg-gray-800 rounded-lg border border-gray-700 hover:border-green-400/50 transition-all duration-300;
+    margin-bottom: 0.75rem;
+    padding: 1rem;
+}
+
+.education-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.education-text {
+    flex: 1;
+}
+
+.education-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 0.25rem 0;
+}
+
+.education-details {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    margin: 0;
+}
+
+.education-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.25rem;
+}
+
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.certificate-item {
+    @apply bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-400/50 transition-all duration-300;
+    margin-bottom: 0.75rem;
+    padding: 1rem;
+}
+
+.certificate-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.certificate-text {
+    flex: 1;
+}
+
+.certificate-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 0.25rem 0;
+}
+
+.certificate-details {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    margin: 0;
+}
+
+.certificate-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.25rem;
+}
+
+.certificates-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Projects section header responsive styling */
+@media (max-width: 768px) {
+    .projects-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
     
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-        });
+    .projects-header .text-right {
+        text-align: left;
     }
+}
 
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 100; // Account for fixed navbar and extra spacing
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
-                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            }
-        });
-    });
+/* Quote Card Styling */
+.quote-card {
+    background: #0f1720;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.08) inset;
+    transition: border-color 0.2s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-    // Active navigation link highlighting
-    const sections = document.querySelectorAll('section[id]');
-    const navItems = document.querySelectorAll('.nav-link');
+.quote-card:hover {
+    border-color: rgba(34, 197, 94, 0.3);
+}
 
-    function highlightNavLink() {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 120;
-            const sectionHeight = section.clientHeight;
-            if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
-            }
-        });
+.quote-icon {
+    font-size: 3rem;
+    color: #22c55e;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
 
-        navItems.forEach(item => {
-            item.classList.remove('text-green-400');
-            item.classList.add('text-gray-300');
-            if (item.getAttribute('href') === `#${current}`) {
-                item.classList.remove('text-gray-300');
-                item.classList.add('text-green-400');
-            }
-        });
+.quote-text {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: #e2e8f0;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+    font-weight: 300;
+}
+
+.quote-attribution {
+    font-size: 1rem;
+    color: #22c55e;
+    font-style: normal;
+    font-weight: 500;
+    display: block;
+}
+
+/* Contact description styling */
+.contact-description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+    .contact-description {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
     }
+}
 
-    window.addEventListener('scroll', highlightNavLink);
+.cert-badge {
+    @apply flex items-center font-medium text-white;
+}
 
-    // Contact form handling
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const message = formData.get('message');
-            
-            // Create mailto link
-            const subject = `Portfolio Contact from ${name}`;
-            const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-            const mailtoLink = `mailto:s.jaspreet.singh.1430@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show success message
-            showNotification('Thank you! Your email client should open now.', 'success');
-            
-            // Reset form
-            this.reset();
-        });
+/* Education section container with green border */
+.education-section {
+    border: 2px solid rgba(34, 197, 94, 0.3);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    background: rgba(15, 23, 32, 0.5);
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.1) inset;
+}
+
+/* Certificates section container with blue border */
+.certificates-section {
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    background: rgba(15, 23, 32, 0.5);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.1) inset;
+}
+
+/* Education & Achievements Styling */
+.edu-card {
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    background: #0f1720;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.08) inset;
+    transition: border-color 0.2s ease;
+}
+
+.edu-card:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.edu-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+.edu-subtitle {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    margin-bottom: 0.4rem;
+}
+
+.edu-details {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    text-align: justify;
+}
+
+.edu-result {
+    margin-top: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #fbbf24;
+}
+
+.achievements-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.achievements-list li {
+    background: rgba(10, 15, 20, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 0.5rem;
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.5rem;
+    color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: border-color 0.2s ease;
+}
+
+.achievements-list li:hover {
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Contact Form Styles */
+.contact-item {
+    @apply flex items-start space-x-4 p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-green-400/50 transition-all duration-300;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #22c55e;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #16a34a;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Section Spacing */
+section {
+    scroll-margin-top: 100px;
+}
+
+/* Prevent section collision */
+section:not(#home) {
+    position: relative;
+    z-index: 1;
+}
+
+/* Selection Color */
+::selection {
+    background-color: #22c55e;
+    color: #1f2937;
+}
+
+/* Focus Styles */
+input:focus,
+textarea:focus {
+    outline: none;
+}
+
+/* Loading Animation */
+.loading {
+    @apply animate-pulse;
+}
+
+/* Hover Effects */
+.hover-lift {
+    transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+}
+
+/* Gradient Text */
+.gradient-text {
+    background: linear-gradient(135deg, #22c55e, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Cyber Grid Background */
+.cyber-grid {
+    background-image: 
+        linear-gradient(rgba(34, 197, 94, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 197, 94, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Terminal Effect */
+.terminal {
+    @apply font-mono bg-black text-green-400 p-4 rounded-lg border border-green-400/30;
+}
+
+/* Glitch Effect */
+.glitch {
+    position: relative;
+    color: #22c55e;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: glitch 2s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    animation: glitch-1 0.5s infinite;
+    color: #ff0000;
+    z-index: -1;
+}
+
+.glitch::after {
+    animation: glitch-2 0.5s infinite;
+    color: #0000ff;
+    z-index: -2;
+}
+
+@keyframes glitch {
+    0%, 100% {
+        transform: translate(0);
     }
-
-    // Notification system
-    function showNotification(message, type = 'info') {
-        const notification = document.createElement('div');
-        notification.className = `fixed top-20 right-4 z-50 p-4 rounded-lg shadow-lg transition-all duration-300 transform translate-x-full ${
-            type === 'success' ? 'bg-green-500 text-white' : 
-            type === 'error' ? 'bg-red-500 text-white' : 
-            'bg-blue-500 text-white'
-        }`;
-        notification.innerHTML = `
-            <div class="flex items-center">
-                <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'} mr-2"></i>
-                <span>${message}</span>
-            </div>
-        `;
-        
-        document.body.appendChild(notification);
-        
-        // Animate in
-        setTimeout(() => {
-            notification.classList.remove('translate-x-full');
-        }, 100);
-        
-        // Remove after 5 seconds
-        setTimeout(() => {
-            notification.classList.add('translate-x-full');
-            setTimeout(() => {
-                document.body.removeChild(notification);
-            }, 300);
-        }, 5000);
+    20% {
+        transform: translate(-2px, 2px);
     }
-
-    // Intersection Observer for animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-fade-in');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements for animation
-    const animateElements = document.querySelectorAll('.skill-category, .project-card, .education-item, .certificate-item, .contact-item');
-    animateElements.forEach(el => {
-        observer.observe(el);
-    });
-
-    // Typing animation for hero text
-    function typeWriter(element, text, speed = 100) {
-        let i = 0;
-        element.innerHTML = '';
-        
-        function type() {
-            if (i < text.length) {
-                element.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(type, speed);
-            }
-        }
-        
-        type();
+    40% {
+        transform: translate(-2px, -2px);
     }
-
-    // Add typing effect to hero subtitle
-    const heroSubtitle = document.querySelector('#home h2');
-    if (heroSubtitle) {
-        const originalText = heroSubtitle.textContent;
-        setTimeout(() => {
-            typeWriter(heroSubtitle, originalText, 50);
-        }, 1000);
+    60% {
+        transform: translate(2px, 2px);
     }
-
-    // Parallax effect for hero section
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const heroSection = document.querySelector('#home');
-        if (heroSection) {
-            heroSection.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
-    });
-
-    // Skill badges hover effect
-    const skillBadges = document.querySelectorAll('.skill-badge');
-    skillBadges.forEach(badge => {
-        badge.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.1) rotate(2deg)';
-        });
-        
-        badge.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1) rotate(0deg)';
-        });
-    });
-
-    // Project cards hover effect
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px)';
-            this.style.boxShadow = '0 20px 40px rgba(34, 197, 94, 0.2)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-            this.style.boxShadow = 'none';
-        });
-    });
-
-    // Add glitch effect to name on hover
-    const nameElement = document.querySelector('#home h1 span');
-    if (nameElement) {
-        nameElement.addEventListener('mouseenter', function() {
-            this.classList.add('glitch');
-            this.setAttribute('data-text', this.textContent);
-        });
-        
-        nameElement.addEventListener('mouseleave', function() {
-            this.classList.remove('glitch');
-        });
+    80% {
+        transform: translate(2px, -2px);
     }
+}
 
-    // Terminal-style typing effect for skills
-    function createTerminalEffect() {
-        const terminalElements = document.querySelectorAll('.skill-badge');
-        terminalElements.forEach((element, index) => {
-            setTimeout(() => {
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(20px)';
-                
-                setTimeout(() => {
-                    element.style.transition = 'all 0.5s ease';
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }, 100);
-            }, index * 100);
-        });
+@keyframes glitch-1 {
+    0%, 100% {
+        transform: translate(0);
     }
-
-    // Trigger terminal effect when skills section is visible
-    const skillsSection = document.querySelector('#skills');
-    if (skillsSection) {
-        const skillsObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    createTerminalEffect();
-                    skillsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        skillsObserver.observe(skillsSection);
+    20% {
+        transform: translate(2px, -2px);
     }
-
-    // Add cyber grid background animation
-    function createCyberGrid() {
-        const gridContainer = document.createElement('div');
-        gridContainer.className = 'fixed inset-0 pointer-events-none opacity-5';
-        gridContainer.style.backgroundImage = `
-            linear-gradient(rgba(34, 197, 94, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(34, 197, 94, 0.1) 1px, transparent 1px)
-        `;
-        gridContainer.style.backgroundSize = '20px 20px';
-        gridContainer.style.animation = 'cyberGridMove 20s linear infinite';
-        
-        document.body.appendChild(gridContainer);
+    40% {
+        transform: translate(-2px, 2px);
     }
-
-    // Add cyber grid animation keyframes
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes cyberGridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(20px, 20px); }
-        }
-    `;
-    document.head.appendChild(style);
-
-    // Initialize cyber grid
-    createCyberGrid();
-
-    // Add particle effect
-    function createParticles() {
-        const particleContainer = document.createElement('div');
-        particleContainer.className = 'fixed inset-0 pointer-events-none overflow-hidden';
-        particleContainer.style.zIndex = '1';
-        
-        for (let i = 0; i < 50; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'absolute w-1 h-1 bg-green-400 rounded-full opacity-30';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = Math.random() * 100 + '%';
-            particle.style.animation = `particleFloat ${5 + Math.random() * 10}s linear infinite`;
-            particleContainer.appendChild(particle);
-        }
-        
-        document.body.appendChild(particleContainer);
+    60% {
+        transform: translate(-2px, -2px);
     }
-
-    // Add particle animation keyframes
-    const particleStyle = document.createElement('style');
-    particleStyle.textContent = `
-        @keyframes particleFloat {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.3;
-            }
-            90% {
-                opacity: 0.3;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-    `;
-    document.head.appendChild(particleStyle);
-
-    // Initialize particles
-    createParticles();
-
-    // Add loading animation
-    window.addEventListener('load', function() {
-        document.body.classList.add('loaded');
-        
-        // Add loaded class styles
-        const loadedStyle = document.createElement('style');
-        loadedStyle.textContent = `
-            body:not(.loaded) {
-                overflow: hidden;
-            }
-            body:not(.loaded)::before {
-                content: '';
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: #111827;
-                z-index: 9999;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            body:not(.loaded)::after {
-                content: 'Loading...';
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                color: #22c55e;
-                font-size: 1.5rem;
-                font-weight: bold;
-                z-index: 10000;
-                animation: pulse 1s infinite;
-            }
-        `;
-        document.head.appendChild(loadedStyle);
-    });
-
-    // Add scroll progress indicator
-    function createScrollProgress() {
-        const progressBar = document.createElement('div');
-        progressBar.className = 'fixed top-0 left-0 w-0 h-1 bg-gradient-to-r from-green-400 to-blue-500 z-50 transition-all duration-300';
-        document.body.appendChild(progressBar);
-        
-        window.addEventListener('scroll', function() {
-            const scrollTop = window.pageYOffset;
-            const docHeight = document.body.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            progressBar.style.width = scrollPercent + '%';
-        });
+    80% {
+        transform: translate(2px, 2px);
     }
+}
 
-    createScrollProgress();
-
-    // Add theme toggle (optional for future enhancement)
-    function createThemeToggle() {
-        const themeToggle = document.createElement('button');
-        themeToggle.className = 'fixed bottom-4 right-4 w-12 h-12 bg-gray-800 border border-gray-700 rounded-full flex items-center justify-center text-gray-300 hover:text-green-400 hover:border-green-400 transition-all duration-300 z-40';
-        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-        themeToggle.title = 'Toggle Theme';
-        
-        themeToggle.addEventListener('click', function() {
-            document.body.classList.toggle('light-theme');
-            const icon = this.querySelector('i');
-            if (document.body.classList.contains('light-theme')) {
-                icon.className = 'fas fa-sun';
-            } else {
-                icon.className = 'fas fa-moon';
-            }
-        });
-        
-        document.body.appendChild(themeToggle);
+@keyframes glitch-2 {
+    0%, 100% {
+        transform: translate(0);
     }
-
-    // Uncomment to enable theme toggle
-    // createThemeToggle();
-
-    // GitHub Projects API Integration
-    async function loadGitHubProjects() {
-        const githubProjectsContainer = document.getElementById('github-projects');
-        if (!githubProjectsContainer) return;
-
-        try {
-            // Show loading state
-            githubProjectsContainer.innerHTML = `
-                <div class="col-span-full flex items-center justify-center py-8">
-                    <div class="flex items-center space-x-2 text-gray-400">
-                        <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-green-400"></div>
-                        <span>Loading projects...</span>
-                    </div>
-                </div>
-            `;
-
-            // Fetch GitHub projects
-            const response = await fetch('https://api.github.com/users/jas-preet-singh/repos?sort=updated&per_page=12');
-            const projects = await response.json();
-
-            if (projects.length === 0) {
-                githubProjectsContainer.innerHTML = `
-                    <div class="col-span-full text-center py-8 text-gray-400">
-                        <i class="fas fa-code text-4xl mb-4"></i>
-                        <p>No projects found</p>
-                    </div>
-                `;
-                return;
-            }
-
-            // Filter out forked repositories and create project cards
-            const filteredProjects = projects.filter(project => !project.fork && project.name !== 'jas-preet-singh');
-            
-            githubProjectsContainer.innerHTML = filteredProjects.map((project, index) => `
-                <div class="github-project-card ${index % 2 === 0 ? 'card-green' : 'card-blue'}">
-                    <div class="project-header">
-                        <h4 class="project-title">${project.name}</h4>
-                        <div class="project-meta">
-                            <span class="project-language">${project.language || 'Text'}</span>
-                            <span class="project-stars">⭐ ${project.stargazers_count}</span>
-                        </div>
-                    </div>
-                    <p class="project-description">${project.description || 'No description available'}</p>
-                    <div class="project-footer">
-                        <div class="project-stats">
-                            <span class="stat-item">
-                                <i class="fas fa-code-branch"></i>
-                                ${project.forks_count}
-                            </span>
-                            <span class="stat-item">
-                                <i class="fas fa-eye"></i>
-                                ${project.watchers_count}
-                            </span>
-                            <span class="stat-item">
-                                <i class="fas fa-calendar"></i>
-                                ${new Date(project.updated_at).toLocaleDateString()}
-                            </span>
-                        </div>
-                        <a href="${project.html_url}" target="_blank" rel="noopener" class="project-link">
-                            <i class="fab fa-github"></i>
-                            View Code
-                        </a>
-                    </div>
-                </div>
-            `).join('');
-
-        } catch (error) {
-            console.error('Error loading GitHub projects:', error);
-            githubProjectsContainer.innerHTML = `
-                <div class="col-span-full text-center py-8 text-red-400">
-                    <i class="fas fa-exclamation-triangle text-4xl mb-4"></i>
-                    <p>Failed to load projects</p>
-                    <p class="text-sm text-gray-500 mt-2">Please check your internet connection</p>
-                </div>
-            `;
-        }
+    20% {
+        transform: translate(-2px, 2px);
     }
+    40% {
+        transform: translate(2px, -2px);
+    }
+    60% {
+        transform: translate(2px, 2px);
+    }
+    80% {
+        transform: translate(-2px, -2px);
+    }
+}
 
-    // Load GitHub projects when the page loads
-    loadGitHubProjects();
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project-card {
+        @apply mb-6;
+    }
+    
+    .skill-category {
+        @apply mb-6;
+    }
+    
+    .contact-item {
+        @apply flex-col space-x-0 space-y-2;
+    }
+}
 
-    console.log('🚀 Portfolio website loaded successfully!');
-    console.log('👨‍💻 Developed by Jaspreet Singh');
-    console.log('🔒 Cybersecurity & AI Enthusiast');
-});
+/* Modern Dark Theme (content unchanged) */
+.light-theme {
+    background-color: #0b0f14; /* deep slate */
+    color: #e5e7eb;
+}
+
+.light-theme nav {
+    background: rgba(11, 15, 20, 0.6);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    backdrop-filter: blur(10px);
+}
+
+.light-theme .nav-link {
+    color: #cbd5e1; /* slate-300 */
+}
+
+.light-theme #home {
+    background: radial-gradient(1200px 600px at 20% 20%, rgba(34,197,94,0.08) 0%, rgba(0,0,0,0) 60%),
+                linear-gradient(90deg, #0b0f14 0%, #14181f 60%, #171a20 100%);
+}
+
+.light-theme #about,
+.light-theme #projects,
+.light-theme #contact {
+    background: linear-gradient(180deg, #10151b, #0c1117);
+}
+
+.light-theme #skills,
+.light-theme #education {
+    background: linear-gradient(180deg, #0e1319, #0b0f14);
+}
+
+.light-theme .skill-category,
+.light-theme .project-card,
+.light-theme .education-item,
+.light-theme .certificate-item,
+.light-theme .contact-item {
+    background-color: #0f172a; /* slate-900 */
+    border-color: #1f2937; /* slate-800 */
+}
+
+.light-theme .project-image {
+    background: linear-gradient(135deg, #111827, #0f172a);
+    border-bottom-color: #1f2937;
+}
+
+.light-theme .project-link {
+    background-color: #111827;
+    color: #e5e7eb;
+}
+
+.light-theme .tech-tag {
+    background-color: rgba(34,197,94,0.12);
+    color: #22c55e;
+}
+
+.light-theme footer {
+    background-color: #0b0f14;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.light-theme .profile-photo-placeholder {
+    background: linear-gradient(135deg, #0f172a, #0b0f14);
+    border-color: #1f2937;
+    box-shadow: 0 0 24px rgba(16, 185, 129, 0.18);
+}
+
+.light-theme input,
+.light-theme textarea {
+    background-color: #111827;
+    border-color: #1f2937;
+    color: #e5e7eb;
+}
+
+.light-theme ::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+/* Hero accent line like reference */
+.light-theme #home h1 {
+    position: relative;
+    padding-left: 28px;
+}
+
+.light-theme #home h1::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12%;
+    bottom: 12%;
+    width: 4px;
+    background: linear-gradient(180deg, #22c55e, #86efac);
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(34,197,94,0.4);
+}
+
+/* New hero styles matching reference */
+.hero-name { letter-spacing: -0.02em; }
+.accent-underline { width: 48px; height: 6px; background: #f59e0b; border-radius: 3px; }
+.hero-badge { color: #94a3b8; letter-spacing: 0.08em; text-transform: lowercase; }
+.hero-link { color: #f59e0b; font-weight: 600; }
+.hero-link:hover { text-decoration: underline; }
+.hero-photo {
+    width: 240px; height: 320px; border-radius: 24px; background: #0f172a;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+    background-image: url('profile_photo.jpg');
+    background-size: cover; background-position: center; border: 1px solid #1f2937;
+}
+
+/* Button style to subtle outlined pill */
+.btn-primary-gradient {
+    @apply inline-flex items-center px-6 py-3 rounded-full font-semibold transition-all duration-300;
+    background: transparent;
+    color: #e5e7eb;
+    border: 2px solid rgba(255,255,255,0.35);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.btn-primary-gradient:hover {
+    border-color: #ffffff;
+    background: rgba(255,255,255,0.06);
+}
+
+.btn-secondary {
+    @apply inline-flex items-center px-6 py-3 rounded-full font-semibold transition-all duration-300;
+    color: #e5e7eb;
+    border: 2px solid rgba(34,197,94,0.35);
+    background: transparent;
+}
+
+.btn-secondary:hover {
+    border-color: #22c55e;
+    background: rgba(34,197,94,0.08);
+}
+
+/* Custom Utilities */
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.border-gradient {
+    border: 2px solid transparent;
+    background: linear-gradient(135deg, #1f2937, #1f2937) padding-box,
+                linear-gradient(135deg, #22c55e, #3b82f6) border-box;
+}
+
+/* Loading States */
+.skeleton {
+    @apply animate-pulse bg-gray-700 rounded;
+}
+
+/* Interactive Elements */
+.interactive {
+    @apply transition-all duration-300 ease-in-out;
+}
+
+.interactive:hover {
+    @apply transform scale-105;
+}
+
+/* Code Block Styling */
+.code-block {
+    @apply bg-gray-800 border border-gray-700 rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto;
+}
+
+/* Status Indicators */
+.status-online {
+    @apply w-3 h-3 bg-green-400 rounded-full animate-pulse;
+}
+
+.status-offline {
+    @apply w-3 h-3 bg-gray-500 rounded-full;
+}
+
+/* Custom Card Hover Effects */
+.card-hover {
+    @apply transition-all duration-300 ease-in-out;
+}
+
+.card-hover:hover {
+    @apply transform -translate-y-2 shadow-2xl;
+    box-shadow: 0 25px 50px -12px rgba(34, 197, 94, 0.25);
+}
+
+/* Typing Animation */
+.typing-animation {
+    overflow: hidden;
+    border-right: 2px solid #22c55e;
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #22c55e; }
+}
+
+/* Profile Photo Placeholder Styles */
+.profile-photo-container {
+    @apply relative;
+}
+
+.profile-photo-placeholder {
+    @apply w-80 h-96 bg-gray-800 rounded-2xl border-2 relative overflow-hidden;
+    background: linear-gradient(135deg, #1f2937, #111827);
+    border-image: linear-gradient(135deg, #3b82f6, #22c55e) 1;
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.3);
+    animation: profileGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes profileGlow {
+    0% {
+        box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 40px rgba(34, 197, 94, 0.6);
+    }
+}
+
+.profile-icon {
+    @apply absolute inset-0 flex items-center justify-center;
+}
+
+.profile-head {
+    @apply w-16 h-16 rounded-full border-2 absolute;
+    border-color: rgba(34, 197, 94, 0.6);
+    background: rgba(34, 197, 94, 0.1);
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    animation: profilePulse 2s ease-in-out infinite;
+}
+
+@keyframes profilePulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.profile-lines {
+    @apply absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: 40px;
+}
+
+.profile-line {
+    @apply h-0.5 bg-gradient-to-r from-blue-400 to-green-400 rounded-full mb-2;
+    animation: lineGlow 2s ease-in-out infinite;
+}
+
+.profile-line.line-1 {
+    width: 60px;
+    animation-delay: 0s;
+}
+
+.profile-line.line-2 {
+    width: 80px;
+    animation-delay: 0.2s;
+}
+
+.profile-line.line-3 {
+    width: 50px;
+    animation-delay: 0.4s;
+}
+
+.profile-line.line-4 {
+    width: 70px;
+    animation-delay: 0.6s;
+}
+
+@keyframes lineGlow {
+    0%, 100% {
+        opacity: 0.4;
+        transform: scaleX(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scaleX(1.1);
+    }
+}
+
+/* Responsive adjustments for profile photo */
+@media (max-width: 1024px) {
+    .profile-photo-placeholder {
+        @apply w-64 h-80;
+    }
+    
+    .profile-head {
+        @apply w-12 h-12;
+    }
+    
+    .profile-line.line-1 { width: 50px; }
+    .profile-line.line-2 { width: 65px; }
+    .profile-line.line-3 { width: 40px; }
+    .profile-line.line-4 { width: 55px; }
+}
+
+@media (max-width: 768px) {
+    .profile-photo-placeholder {
+        @apply w-56 h-72;
+    }
+    
+    .profile-head {
+        @apply w-10 h-10;
+    }
+    
+    .profile-line.line-1 { width: 40px; }
+    .profile-line.line-2 { width: 50px; }
+    .profile-line.line-3 { width: 30px; }
+    .profile-line.line-4 { width: 45px; }
+}
