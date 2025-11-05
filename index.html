@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaspreet Singh - Cybersecurity Student & Developer</title>
+    <meta name="description"
+        content="Jaspreet Singh - Cybersecurity student, Python developer, and AI enthusiast. Passionate about network security, ethical hacking, and threat analysis.">
+    <meta name="keywords"
+        content="cybersecurity, python developer, ethical hacking, network security, AI, Jaspreet Singh">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jaspreet-singh-portfolio.netlify.app/">
+    <meta property="og:title" content="Jaspreet Singh - Cybersecurity Student & Developer">
+    <meta property="og:description"
+        content="Cybersecurity student, Python developer, and AI enthusiast. Passionate about network security, ethical hacking, and threat analysis.">
+    <meta property="og:image" content="https://jaspreet-singh-portfolio.netlify.app/assets/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://jaspreet-singh-portfolio.netlify.app/">
+    <meta property="twitter:title" content="Jaspreet Singh - Cybersecurity Student & Developer">
+    <meta property="twitter:description"
+        content="Cybersecurity student, Python developer, and AI enthusiast. Passionate about network security, ethical hacking, and threat analysis.">
+    <meta property="twitter:image" content="https://jaspreet-singh-portfolio.netlify.app/assets/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="font-inter light-theme">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-800">
+        <div class="w-full px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-green-400">PORTFOLIO</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="flex items-baseline space-x-6">
+                        <a href="#home"
+                            class="nav-link text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="#about"
+                            class="nav-link text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                        <a href="#skills"
+                            class="nav-link text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Skills</a>
+                        <a href="#projects"
+                            class="nav-link text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Projects</a>
+                        <a href="#education"
+                            class="nav-link text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Education</a>
+                        <a href="#contact"
+                            class="nav-link text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-green-400 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-900 border-t border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home"
+                    class="nav-link block text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#about"
+                    class="nav-link block text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#skills"
+                    class="nav-link block text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-base font-medium">Skills</a>
+                <a href="#projects"
+                    class="nav-link block text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="#education"
+                    class="nav-link block text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-base font-medium">Education</a>
+                <a href="#contact"
+                    class="nav-link block text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center py-16 md:py-24 lg:py-28 animate-fade-in">
+                <!-- Left: Name and socials -->
+                <div class="lg:col-span-5">
+                    <h1
+                        class="hero-name text-white font-extrabold tracking-tight leading-tight text-5xl md:text-6xl lg:text-5xl">
+                        Jaspreet Singh
+                        <span class="text-amber-400"></span>
+                    </h1>
+                    <h2 class="text-gray-400 mt-4 text-lg md:text-xl">
+                        Cybersecurity Researcher | Software Developer | AI Enthusiast
+                    </h2>
+                    <div class="accent-underline mt-6 mb-8"></div>
+                    <div class="flex items-center space-x-5 text-gray-300">
+                        <a href="https://github.com/jas-preet-singh" target="_blank" aria-label="GitHub"
+                            class="hover:text-amber-400 transition-colors"><i class="fab fa-github text-xl"></i></a>
+                        <a href="https://linkedin.com/in/jaspreet-singh-906415297" target="_blank" aria-label="LinkedIn"
+                            class="hover:text-amber-400 transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="https://s.jaspreet.singh.1430@gmail.com" target="_blank" aria-label="Email"
+                            class="hover:text-amber-400 transition-colors"><i class="fas fa-envelope text-xl"></i></a>
+                    </div>
+                </div>
+
+                <!-- Middle: Photo -->
+                <div class="lg:col-span-3 flex justify-center">
+                    <!-- <div class="hero-photo"></div> -->
+                </div>
+
+                <!-- Right: Intro -->
+                <div class="lg:col-span-4">
+                    <span class="hero-badge"> — INTRODUCTION </span>
+                    <h2 class="text-gray-100 text-2xl md:text-3xl font-semibold mt-4">
+                        Cybersecurity Student & Python Developer, based in India.
+                    </h2>
+                    <p class="text-gray-400 mt-4 leading-relaxed">
+                        I focus on network security, ethical hacking and AI-driven defenses. Passionate about building
+                        secure, reliable systems and learning every day.
+                    </p>
+                    <a href="#about" class="hero-link mt-6 inline-flex items-center">My story <i
+                            class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="pt-24 pb-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-left mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
+                <div class="w-24 h-1 bg-green-400"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center">
+                    <div class="w-64 h-64 mx-auto mb-8 rounded-full bg-gradient-to-br from-green-400 to-blue-500 p-1">
+                        <div class="w-full h-full rounded-full bg-gray-800 flex items-center justify-center">
+                            <i class="fas fa-user text-6xl text-green-400"></i>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-green-400">Cybersecurity Researcher & Developer</h3>
+                    <p class="text-gray-300 mb-8 leading-relaxed text-justify">
+                        Hi, I'm Jaspreet Singh, a passionate cybersecurity student and aspiring security researcher with
+                        a strong foundation in Python programming, network security, and ethical hacking. I specialize
+                        in network security, ethical hacking, and threat analysis, with hands-on experience in
+                        industry-standard tools. I enjoy
+                        building innovative solutions at the intersection of cybersecurity and artificial intelligence,
+                        where I focus on designing systems that are robust, efficient, and adaptive to evolving threats.
+                    </p>
+                    <div class="skill-badges-container space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-graduation-cap text-green-400 mr-3"></i>
+                            <span class="text-gray-300">🎓 B.Tech CSE (Cybersecurity) at GNA University</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-tools text-green-400 mr-3"></i>
+                            <span class="text-gray-300">🛠️ Hands-on with Kali Linux, Metasploit, Burp Suite,
+                                Cryptography</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-lightbulb text-green-400 mr-3"></i>
+                            <span class="text-gray-300">💡 Passionate about AI + Cybersecurity + Ethical Hacking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="pt-24 pb-20 bg-gray-900">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-left mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Skills</h2>
+                <div class="w-24 h-1 bg-green-400"></div>
+            </div>
+            <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Programming -->
+                <div class="skill-card accent-green">
+                    <div class="text-center">
+                        <div class="text-3xl">〈〉</div>
+                        <h3 class="mt-2 font-semibold text-white">Programming</h3>
+                    </div>
+                    <div class="mt-5 space-y-3">
+                        <div class="skill-pill"><span class="skill-icon">🐍</span><span>Python</span></div>
+                        <div class="skill-pill"><span class="skill-icon">⌘</span><span>C</span></div>
+                        <div class="skill-pill"><span class="skill-icon">⌘</span><span> C++</span></div>
+                        <div class="skill-pill"><span class="skill-icon">☕</span><span>Java</span></div>
+                    </div>
+                </div>
+                <!-- Cybersecurity Tools -->
+                <div class="skill-card accent-blue">
+                    <div class="text-center">
+                        <div class="text-3xl">🛡️</div>
+                        <h3 class="mt-2 font-semibold text-white">Security Tools</h3>
+                    </div>
+                    <div class="mt-5 space-y-3">
+                        <div class="skill-pill"><span class="skill-icon">🐧</span><span>Kali Linux</span></div>
+                        <div class="skill-pill"><span class="skill-icon">🛠️</span><span>Metasploit</span></div>
+                        <div class="skill-pill"><span class="skill-icon">🧪</span><span>Burp Suite</span></div>
+                        <div class="skill-pill"><span class="skill-icon">🔍</span><span>Wireshark</span></div>
+                    </div>
+                </div>
+                <!-- Network Security -->
+                <div class="skill-card accent-green">
+                    <div class="text-center">
+                        <div class="text-3xl">🔗</div>
+                        <h3 class="mt-2 font-semibold text-white">Network Security</h3>
+                    </div>
+                    <div class="mt-5 space-y-3">
+                        <div class="skill-pill"><span class="skill-icon">🔐</span><span>Cryptography</span></div>
+                        <div class="skill-pill"><span class="skill-icon">🕵️</span><span>Penetration Testing</span>
+                        </div>
+                        <div class="skill-pill"><span class="skill-icon">🔍</span><span>Vulnerability Assessment</span>
+                        </div>
+                        <div class="skill-pill"><span class="skill-icon">🔐</span><span>Firewall Configuration</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Operating Systems -->
+                <div class="skill-card accent-blue">
+                    <div class="text-center">
+                        <div class="text-3xl">🖥️</div>
+                        <h3 class="mt-2 font-semibold text-white">Operating Systems</h3>
+                    </div>
+                    <div class="mt-5 space-y-3">
+                        <div class="skill-pill"><span class="skill-icon">🪟</span><span>Windows</span></div>
+                        <div class="skill-pill"><span class="skill-icon">🐧</span><span>Linux</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Projects Section -->
+    <section id="projects" class="pt-24 pb-20 bg-gray-800">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+            <div class="flex justify-between items-center mb-16 projects-header">
+                <div class="text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Projects</h2>
+                    <div class="w-24 h-1 bg-green-400"></div>
+                </div>
+                <div class="text-right">
+                    <a href="https://github.com/jas-preet-singh" target="_blank" rel="noopener"
+                        class="inline-flex items-center text-green-400 hover:text-green-300 transition-colors duration-300 font-medium">
+                        View all on GitHub
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-8 grid md:grid-cols-2 gap-6" id="project-cards">
+                <!-- AI-Based Firewall Project -->
+                <article class="card card-green">
+                    <figure>
+                        <img src="https://source.unsplash.com/1200x440/?cybersecurity,network" alt="AI-Based Firewall"
+                            class="card-media" loading="lazy" />
+                        <figcaption class="fig-caption">AI-Based Firewall</figcaption>
+                    </figure>
+                    <div class="p-5">
+                        <h3 class="text-white font-semibold text-lg">AI-Based Firewall</h3>
+                        <p class="mt-2 text-slate-300 text-justify">
+                            ML-powered firewall that classifies network requests, detects anomalies, and enhances
+                            endpoint security.
+                        </p>
+                        <p class="table-caption">Technologies Used</p>
+                        <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                            <span class="badge">Python</span>
+                            <span class="badge">scikit-learn</span>
+                            <span class="badge">Pandas</span>
+                        </div>
+                        <div class="mt-4 flex items-center gap-3">
+                            <a class="btn-ghost" target="_blank" rel="noopener"
+                                href="https://github.com/jas-preet-singh">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CSentinel Project -->
+                <article class="card card-blue">
+                    <figure>
+                        <img src="/picture/Screenshot 2025-09-21 145829.png" alt="C-Sentinel Cybersecurity Dashboard" class="card-media"
+                            loading="lazy" />
+                        <figcaption class="fig-caption">C-Sentinel</figcaption>
+                    </figure>
+                    <div class="p-5">
+                        <h3 class="text-white font-semibold text-lg">C-Sentinel</h3>
+                        <p class="mt-2 text-slate-300 text-justify">
+                            Advanced cybersecurity monitoring and threat detection system with real-time analysis and
+                            automated response capabilities.
+                        </p>
+                        <p class="table-caption">Technologies Used</p>
+                        <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                            <span class="badge">Python</span>
+                            <span class="badge">Machine Learning</span>
+                            <span class="badge">Network Security</span>
+                            <span class="badge">Real-time Monitoring</span>
+                        </div>
+                        <div class="mt-4 flex items-center gap-3">
+                            <a class="btn-ghost" target="_blank" rel="noopener"
+                                href="https://github.com/jas-preet-singh">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- GitHub Dynamic Projects Grid -->
+            <div class="mt-10">
+                <h3 class="text-slate-200 font-medium">More Projects</h3>
+                <div id="github-projects" class="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Achievements Section -->
+    <section id="education" class="pt-24 pb-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-left mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Education & Achievements</h2>
+                <div class="w-24 h-1 bg-green-400"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="education-section">
+                    <h3 class="text-2xl font-bold mb-8 text-green-400">
+                        <i class="fas fa-graduation-cap mr-2"></i>
+                        Education
+                    </h3>
+                    <div class="education-list">
+                        <div class="education-item">
+                            <div class="education-content">
+                                <div class="education-text">
+                                    <h4 class="education-title">B.Tech CSE (Cybersecurity)</h4>
+                                    <p class="education-details">GNA University, Phagwara • 2023 – Present</p>
+                                </div>
+                                <div class="education-icon">
+                                    <i class="fas fa-graduation-cap text-green-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="education-item">
+                            <div class="education-content">
+                                <div class="education-text">
+                                    <h4 class="education-title">Senior Secondary (PCM)</h4>
+                                    <p class="education-details">Guru Nanak Collegiate School, Phagwara • 75%</p>
+                                </div>
+                                <div class="education-icon">
+                                    <i class="fas fa-school text-green-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="certificates-section">
+                    <h3 class="text-2xl font-bold mb-8 text-green-400">
+                        <i class="fas fa-certificate mr-2"></i>
+                        Certificates & Achievements
+                    </h3>
+                    <div class="certificates-list">
+                        <div class="certificate-item">
+                            <div class="certificate-content">
+                                <div class="certificate-text">
+                                    <h4 class="certificate-title">Python Essential Training</h4>
+                                    <p class="certificate-details">LinkedIn • Aug 2024</p>
+                                </div>
+                                <div class="certificate-icon">
+                                    <i class="fab fa-python text-pink-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="certificate-item">
+                            <div class="certificate-content">
+                                <div class="certificate-text">
+                                    <h4 class="certificate-title">Machine Learning Foundations</h4>
+                                    <p class="certificate-details">Feb 2024</p>
+                                </div>
+                                <div class="certificate-icon">
+                                    <i class="fas fa-brain text-purple-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="certificate-item">
+                            <div class="certificate-content">
+                                <div class="certificate-text">
+                                    <h4 class="certificate-title">Bug Bounty Mastery 1.0</h4>
+                                    <p class="certificate-details">Feb 2025</p>
+                                </div>
+                                <div class="certificate-icon">
+                                    <i class="fas fa-bug text-green-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="certificate-item">
+                            <div class="certificate-content">
+                                <div class="certificate-text">
+                                    <h4 class="certificate-title">ThreatQuest 3-Day Bootcamp</h4>
+                                    <p class="certificate-details">Sep 2024</p>
+                                </div>
+                                <div class="certificate-icon">
+                                    <i class="fas fa-shield-alt text-blue-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="certificate-item">
+                            <div class="certificate-content">
+                                <div class="certificate-text">
+                                    <h4 class="certificate-title">GNA Hackathon 3.0 Participant</h4>
+                                    <p class="certificate-details">Mar 2025</p>
+                                </div>
+                                <div class="certificate-icon">
+                                    <i class="fas fa-code text-white"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="pt-24 pb-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-left mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+                <div class="w-24 h-1 bg-green-400"></div>
+                <p class="text-gray-300 mt-6 contact-description">
+                    I'm always interested in new opportunities, collaborations, and discussions about cybersecurity and
+                    AI. Let's connect!
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-8 text-green-400">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope text-green-400 text-xl mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold text-white">Email</h4>
+                                <a href="https://s.jaspreet.singh.1430@gmail.com" target="_blank"
+                                    class="text-gray-300 hover:text-green-400 transition-colors">
+                                    s.jaspreet.singh.1430@gmail.com
+                                </a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin text-green-400 text-xl mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold text-white">LinkedIn</h4>
+                                <a href="https://linkedin.com/in/jaspreet-singh-906415297"
+                                    class="text-gray-300 hover:text-green-400 transition-colors" target="_blank">
+                                    linkedin.com/in/jaspreet-singh-906415297
+                                </a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github text-green-400 text-xl mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold text-white">GitHub</h4>
+                                <a href="https://github.com/jas-preet-singh"
+                                    class="text-gray-300 hover:text-green-400 transition-colors" target="_blank">
+                                    github.com/jas-preet-singh
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="quote-card">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <blockquote class="quote-text">
+                            "The best defense is a good offense. Stay curious, stay secure."
+                        </blockquote>
+                        <cite class="quote-attribution">— Cybersecurity Mindset</cite>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
