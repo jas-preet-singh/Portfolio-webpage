@@ -2,9 +2,6 @@
 
 A professional, modern, and responsive portfolio website showcasing cybersecurity expertise, Python development skills, and AI enthusiasm.
 
-## 🚀 Live Demo
-
-[View Live Website](https://jaspreet-singh-portfolio.netlify.app/)
 
 ## 🎯 Features
 
@@ -191,6 +188,7 @@ This project is open source and available under the [MIT License](LICENSE).
 **Built with ❤️ by Jaspreet Singh**
 
 *Cybersecurity Student | Python Developer | AI & Security Enthusiast*
+
 
 
 
